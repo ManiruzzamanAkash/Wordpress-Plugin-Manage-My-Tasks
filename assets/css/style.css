@@ -16,6 +16,11 @@
     background-color: transparent!important;
 }
 
+tr.task-done td {
+    background: #fbe6e8;
+    border-top: 1px solid #fff;
+}
+
 
 /******************************************** BODY Container ************************************/
 

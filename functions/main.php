@@ -1,34 +1,34 @@
 <?php
-require_once( AK_TASK__PLUGIN_DIR . 'functions/query.php' );
+require_once( AMEAT_AK_TASK__PLUGIN_DIR . 'functions/query.php' );
 
-function crudTaskOperation()
+function AMEAT_crudTaskOperation()
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . TASK_TABLE_NAME;
+    $table_name = $wpdb->prefix . AMEAT_TASK_TABLE_NAME;
     
-    require_once( AK_TASK__PLUGIN_DIR . 'views/task-list.php' );
+    require_once( AMEAT_AK_TASK__PLUGIN_DIR . 'views/task-list.php' );
 }
 
-function createTaskOperation()
+function AMEAT_createTaskOperation()
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . TASK_TABLE_NAME;
+    $table_name = $wpdb->prefix . AMEAT_TASK_TABLE_NAME;
     
-    require_once( AK_TASK__PLUGIN_DIR . 'views/task-create.php' );
+    require_once( AMEAT_AK_TASK__PLUGIN_DIR . 'views/task-create.php' );
 }
 
-function completeTaskOperation()
+function AMEAT_completeTaskOperation()
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . TASK_TABLE_NAME;
+    $table_name = $wpdb->prefix . AMEAT_TASK_TABLE_NAME;
     
-    require_once( AK_TASK__PLUGIN_DIR . 'views/task-list-done.php' );
+    require_once( AMEAT_AK_TASK__PLUGIN_DIR . 'views/task-list-done.php' );
 }
 
-function allTaskOperation()
+function AMEAT_allTaskOperation()
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . TASK_TABLE_NAME;
+    $table_name = $wpdb->prefix . AMEAT_TASK_TABLE_NAME;
     
-    require_once( AK_TASK__PLUGIN_DIR . 'views/task-list-all.php' );
+    require_once( AMEAT_AK_TASK__PLUGIN_DIR . 'views/task-list-all.php' );
 }

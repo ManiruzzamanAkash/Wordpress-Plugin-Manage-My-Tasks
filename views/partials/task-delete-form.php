@@ -1,51 +1,17 @@
-<?php
-if (isset($_POST['deleteTask']) && isset($task)) {
-    $id = $_POST['id'];
-    $response = deleteTask($id);
-
-    if ($response['status']) {
-        echo '<script type="text/javascript">
-                swal({
-                        position: "top-end",
-                        title: "'.$response['message'].'",
-                        icon: "success",
-                        closeOnClickOutside: false,
-                        allowOutsideClick: false
-                    })
-                    .then((success) => {
-                        if (success) {
-                            window.location.replace("admin.php?page=tasks")
-                        }
-                    });
-         </script>';
-        // echo "<script>location.replace('admin.php?page=tasks');</script>";
-    } else {
-        echo '<script type="text/javascript">
-            swal({
-                    position: "top-end",
-                    icon: "error",
-                    title: "'.$response['message'].'",
-                    showConfirmButton: false,
-                })
-        </script>';
-    }
-}
-?>
-
 <form action="" method="post" data-parsley-validate>
-<input type="hidden" name="id" value="<?= $task->id ?>">
+    <input type="hidden" name="id" value="<?php echo  $task->id ?>">
     <div class="row">
         <div class="col-12">
             <label for="">Are you sure to delete the task ?</label>
             <div class="card card-body p-3">
-                <h5><?= $task->title ?></h5>
-                <p class="mb-2"> <?= $task->description ?></p>
+                <h5><?php echo  $task->title ?></h5>
+                <p class="mb-2"> <?php echo  $task->description ?></p>
                 <hr>
                 <p>
-                    Status - <span class="badge badge-info"><?= $task->status ?></span>
+                    Status - <span class="badge badge-info"><?php echo  $task->status ?></span>
                 </p>
                 <p>
-                    Priority - <span class="badge badge-info"><?= $task->priority ?></span>
+                    Priority - <span class="badge badge-info"><?php echo  $task->priority ?></span>
                 </p>
             </div>
         </div>
