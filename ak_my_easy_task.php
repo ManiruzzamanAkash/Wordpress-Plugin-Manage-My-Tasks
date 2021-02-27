@@ -52,17 +52,17 @@ add_action('admin_init', 'AMEAT_admin_js_css_init');
  */
 function AMEAT_admin_js_css_init()
 {
-    
-    wp_register_style('AMEAT_bootstrap_styles', '/wp-content/plugins/ak_my_easy_task/assets/css/bootstrap.min.css');
-    wp_register_style('AMEAT_parsley_styles', '/wp-content/plugins/ak_my_easy_task/assets/css/parsley.css');
-    wp_register_style('AMEAT_font_awesome_styles', '/wp-content/plugins/ak_my_easy_task/assets/css/fonts/font-awesome/css/font-awesome.min.css');
-    wp_register_style('AMEAT_main_styles', '/wp-content/plugins/ak_my_easy_task/assets/css/style.css');
+
+    wp_register_style('AMEAT_bootstrap_styles', plugins_url('/assets/css/bootstrap.min.css', __FILE__));
+    wp_register_style('AMEAT_parsley_styles', plugins_url('/assets/css/parsley.css', __FILE__));
+    wp_register_style('AMEAT_font_awesome_styles', plugins_url('/assets/css/fonts/font-awesome/css/font-awesome.min.css', __FILE__));
+    wp_register_style('AMEAT_main_styles', plugins_url('/assets/css/style.css', __FILE__));
     add_action('admin_print_styles', 'AMEAT_admin_styles');
 
-    wp_register_script('AMEAT_sweetalert_script', '/wp-content/plugins/ak_my_easy_task/assets/js/sweetalert.min.js');
-    wp_register_script('AMEAT_popper_script', '/wp-content/plugins/ak_my_easy_task/assets/js/popper.min.js');
-    wp_register_script('AMEAT_bootstrap_script', '/wp-content/plugins/ak_my_easy_task/assets/js/bootstrap.min.js');
-    wp_register_script('AMEAT_parsley_script', '/wp-content/plugins/ak_my_easy_task/assets/js/parsley.min.js');
+    wp_register_script('AMEAT_sweetalert_script', plugins_url('/assets/js/sweetalert.min.js', __FILE__));
+    wp_register_script('AMEAT_popper_script', plugins_url('/assets/js/popper.min.js', __FILE__));
+    wp_register_script('AMEAT_bootstrap_script', plugins_url('/assets/js/bootstrap.min.js', __FILE__));
+    wp_register_script('AMEAT_parsley_script', plugins_url('/assets/js/parsley.min.js', __FILE__));
     add_action('admin_print_scripts', 'AMEAT_admin_scripts');
 
     /**
