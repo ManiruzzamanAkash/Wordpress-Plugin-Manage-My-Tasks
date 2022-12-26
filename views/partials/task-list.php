@@ -24,25 +24,25 @@ if (isset($_POST['search'])) {
         </thead>
         <tbody>
             <?php foreach ($tasks as $key => $task) : ?>
-                <tr class="<?php echo  $task->status === "Pending" ? 'task-pending' : 'task-done' ?>">
-                    <td width="5%"><?php echo  $key + 1 ?></td>
-                    <td width="20%"><?php echo  $task->title ?></td>
-                    <td width="10%"><?php echo  $task->priority ?></td>
+                <tr class="<?php echo esc_attr( $task->status === "Pending" ? 'task-pending' : 'task-done' ); ?>">
+                    <td width="5%"><?php echo esc_attr( $key + 1 ); ?></td>
+                    <td width="20%"><?php echo esc_attr( $task->title ); ?></td>
+                    <td width="10%"><?php echo esc_attr( $task->priority ); ?></td>
                     <td width="10%">
-                        <?php if ($task->status === "Pending") : ?>
+                        <?php if ( "Pending" === $task->status ) : ?>
                             <span class="badge badge-warning"> Pending </span>
                         <?php endif; ?>
 
-                        <?php if ($task->status === "Done") : ?>
+                        <?php if ( "Done" === $task->status ) : ?>
                             <span class="badge badge-success"> Done </span>
                         <?php endif; ?>
                     </td>
-                    <td width="25%"><?php echo  $task->description ?></td>
+                    <td width="25%"><?php echo wp_kses_post( $task->description ); ?></td>
                     <td width="10%">
-                        <?php if ($task->status === "Pending") : ?>
+                        <?php if ( "Pending" === $task->status ) : ?>
                             <form action="" method="POST" style="display: inline;">
                                 <input type="hidden" name="mark_as_complete_status" value="Done">
-                                <input type="hidden" name="mark_as_complete_id" value="<?php echo  $task->id ?>">
+                                <input type="hidden" name="mark_as_complete_id" value="<?php echo esc_attr( $task->id ); ?>">
                                 <button type="submit" class="btn btn-warning btn-sm" name="submit_mark_complete" title="Mark As Complete"><i class="fa fa-check"></i></button>
                             </form>
                         <?php endif; ?>
@@ -50,13 +50,13 @@ if (isset($_POST['search'])) {
                         <?php if ($task->status === "Done") : ?>
                             <form action="" method="POST" style="display: inline;">
                                 <input type="hidden" name="mark_as_pending_status" value="Pending">
-                                <input type="hidden" name="mark_as_pending_id" value="<?php echo  $task->id ?>">
+                                <input type="hidden" name="mark_as_pending_id" value="<?php echo esc_attr( $task->id ); ?>">
                                 <button type="submit" class="btn btn-info btn-sm" name="submit_mark_pending" title="Mark As Pending"><i class="fa fa-refresh"></i></button>
                             </form>
                         <?php endif; ?>
 
-                        <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#editTaskModal<?php echo  $task->id ?>" title="Task Edit"><i class="fa fa-pencil"></i></a>
-                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteTaskModal<?php echo  $task->id ?>" title="Task Delete"><i class="fa fa-trash"></i></a>
+                        <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#editTaskModal<?php echo esc_attr( $task->id ); ?>" title="Task Edit"><i class="fa fa-pencil"></i></a>
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteTaskModal<?php echo esc_attr( $task->id ); ?>" title="Task Delete"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             <?php endforeach; ?>

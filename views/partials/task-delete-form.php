@@ -1,17 +1,17 @@
 <form action="" method="post" data-parsley-validate>
-    <input type="hidden" name="id" value="<?php echo  $task->id ?>">
+    <input type="hidden" name="id" value="<?php echo esc_attr( $task->id ); ?>">
     <div class="row">
         <div class="col-12">
             <label for="">Are you sure to delete the task ?</label>
             <div class="card card-body p-3">
-                <h5><?php echo  $task->title ?></h5>
-                <p class="mb-2"> <?php echo  $task->description ?></p>
+                <h5><?php echo esc_html( $task->title ); ?></h5>
+                <p class="mb-2"> <?php echo wp_kses_post( $task->description ); ?></p>
                 <hr>
                 <p>
-                    Status - <span class="badge badge-info"><?php echo  $task->status ?></span>
+                    Status - <span class="badge badge-info"><?php echo esc_html( $task->status ); ?></span>
                 </p>
                 <p>
-                    Priority - <span class="badge badge-info"><?php echo  $task->priority ?></span>
+                    Priority - <span class="badge badge-info"><?php echo esc_html( $task->priority ); ?></span>
                 </p>
             </div>
         </div>

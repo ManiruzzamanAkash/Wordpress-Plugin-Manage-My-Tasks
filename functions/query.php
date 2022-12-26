@@ -26,8 +26,7 @@ function AMEAT_getTaskLists($status = '')
  *
  * @return array tasks list
  */
-function AMEAT_getTaskListsBySearch($search = '', $page_name = 'tasks')
-{
+function AMEAT_getTaskListsBySearch($search = '', $page_name = 'tasks') {
     $search = trim($search);
     global $wpdb;
     $table_name = $wpdb->prefix . AMEAT_TASK_TABLE_NAME;
@@ -35,17 +34,22 @@ function AMEAT_getTaskListsBySearch($search = '', $page_name = 'tasks')
 
     $query = "SELECT * FROM $table_name WHERE 1=1 ";
 
-    if ($status !== "")
-        $query .= " AND `status` = %s ";
+    if ( ! empty( $status ) ) {
+	    $query .= " AND `status` = %s ";
+    }
 
-    if (strlen($search) >= 0)
-        $query .= " AND `title` LIKE %s";
+    if ( ! empty( $search ) ) {
+	    $query .= " AND `title` LIKE %s";
+    }
+
     $query .= " ORDER BY id DESC";
 
-    if ($status === "")
-        $sql_prep = $wpdb->prepare($query, array('%' . $search . '%'));
-    else
-        $sql_prep = $wpdb->prepare($query, array($status, '%' . $search . '%'));
+    if ($status === "") {
+	    $sql_prep = $wpdb->prepare($query, array('%' . $search . '%'));
+    } else {
+	    $sql_prep = $wpdb->prepare($query, array($status, '%' . $search . '%'));
+    }
+
     return $wpdb->get_results($sql_prep);
 }
 

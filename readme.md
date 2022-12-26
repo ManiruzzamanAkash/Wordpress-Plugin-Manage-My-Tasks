@@ -3,16 +3,16 @@ Contributors: maniruzzaman-akash
 Donate link: https://patreon.com/maniruzzaman
 Tags: tasks, simple tasks, easy tasks, manage tasks, manage todos
 Requires at least: 5.1
-Tested up to: 5.6
-Requires PHP: 7.0
+Tested up to: 6.1
+Requires PHP: 5.6
 Stable tag: 1.0.0
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
-Manage My Tasks now is a simple plugin to manage everydays tasks and todos very easily.
+Manage My Tasks now is a simple plugin to manage everyday tasks and todos very easily.
  
 ### Description
-It's a simple plugin to manage everydays tasks and todos very easily.
+It's a simple plugin to manage everyday tasks and todos very easily.
 
 
 ### Installation

@@ -1,58 +1,60 @@
 <?php
 /*
-Plugin Name: Manage My Tasks Now
-Plugin URI: http://wordpress.org/plugins/ameat-ak-manage-my-easy-tasks/
-Description: Task Management Plugin which can create task for yourself and make your life easier with every perspective of life ...
-Author: Maniruzzaman Akash
-Version: 1.0.0
-Author URI: https://akash.devsenv.com
+Plugin Name:        Manage My Tasks Now
+Description:        Task Management Plugin which can create task for yourself and make your life easier with every perspective of life.
+Plugin URI:         http://wordpress.org/plugins/ameat-ak-manage-my-easy-tasks/
+Version:            1.0.0
+Requires at least:  5.1
+Requires PHP:       5.6
+Tested up to:       6.1
+License:            GPL-2.0-or-later
+License URI:        https://www.gnu.org/licenses/gpl-2.0.html
+Author:             Maniruzzaman Akash<manirujjamanakash@gmail.com>
+Author URI:         https://akash.devsenv.com
+Text Domain:        ameat-ak-task
 */
 
 /**
- * Defined Data
+ * Defined Data.
  */
 define('AMEAT_AK_TASK__PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('AMEAT_TASK_TABLE_NAME', "AMEAT_tblTasks");
 
 /**
- * Calls when plugin is activated
+ * Calls when plugin is activated.
  */
 register_activation_hook(__FILE__, 'AMEAT_crudOperationsTable');
 
-
 /**
- * Calls when plugin is deactivated
+ * Calls when plugin is deactivated.
  */
 register_deactivation_hook(__FILE__, 'AMEAT_uninstallAndDeleteTables');
 
 
-// Initializes Function
+// Initializes Function.
 require_once(AMEAT_AK_TASK__PLUGIN_DIR . 'functions/init.php');
 require_once(AMEAT_AK_TASK__PLUGIN_DIR . 'functions/uninstall.php');
 require_once(AMEAT_AK_TASK__PLUGIN_DIR . 'functions/main.php');
 
-
-// Create CRUD Pages for Admin
+// Create CRUD Pages for Admin.
 add_action('admin_menu', 'AMEAT_addAdminPageContent');
-function AMEAT_addAdminPageContent()
-{
+
+function AMEAT_addAdminPageContent() {
     add_menu_page('Task Management', 'My Tasks', 'manage_options', 'tasks', 'AMEAT_crudTaskOperation', 'dashicons-admin-page');
     add_submenu_page('tasks', 'Create Task', 'Create Task', 'manage_options', 'tasks-create', 'AMEAT_createTaskOperation', 3);
     add_submenu_page('tasks', 'Completed Task', 'Completed Task', 'manage_options', 'tasks-complete', 'AMEAT_completeTaskOperation', 2);
     add_submenu_page('tasks', 'All Task', 'All Task', 'manage_options', 'tasks-all', 'AMEAT_allTaskOperation', 1);
 }
 
-// Add Styles & JS Action
+// Add Styles & JS Action.
 add_action('admin_init', 'AMEAT_admin_js_css_init');
 
 /**
- * Init CSS and JS
+ * Init CSS and JS.
  *
  * @return void
  */
-function AMEAT_admin_js_css_init()
-{
-
+function AMEAT_admin_js_css_init() {
     wp_register_style('AMEAT_bootstrap_styles', plugins_url('/assets/css/bootstrap.min.css', __FILE__));
     wp_register_style('AMEAT_parsley_styles', plugins_url('/assets/css/parsley.css', __FILE__));
     wp_register_style('AMEAT_font_awesome_styles', plugins_url('/assets/css/fonts/font-awesome/css/font-awesome.min.css', __FILE__));
@@ -66,12 +68,11 @@ function AMEAT_admin_js_css_init()
     add_action('admin_print_scripts', 'AMEAT_admin_scripts');
 
     /**
-     * Init CSS
+     * Init CSS.
      *
      * @return void
      */
-    function AMEAT_admin_styles()
-    {
+    function AMEAT_admin_styles() {
         wp_enqueue_style('AMEAT_bootstrap_styles');
         wp_enqueue_style('AMEAT_parsley_styles');
         wp_enqueue_style('AMEAT_font_awesome_styles');
@@ -79,12 +80,11 @@ function AMEAT_admin_js_css_init()
     }
 
     /**
-     * Init JS
+     * Init JS.
      *
      * @return void
      */
-    function AMEAT_admin_scripts()
-    {
+    function AMEAT_admin_scripts() {
         wp_enqueue_script('AMEAT_sweetalert_script');
         wp_enqueue_script('AMEAT_popper_script');
         wp_enqueue_script('AMEAT_bootstrap_script');

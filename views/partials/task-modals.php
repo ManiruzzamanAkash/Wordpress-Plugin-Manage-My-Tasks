@@ -19,7 +19,7 @@
 
 <!-- Edit Modals -->
 <?php foreach ($tasks as $key => $task) : ?>
-<div class="modal fade" id="editTaskModal<?php echo  $task->id ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+<div class="modal fade" id="editTaskModal<?php echo esc_attr( $task->id ); ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -39,7 +39,7 @@
 
 <!-- Delete Modals -->
 <?php foreach ($tasks as $key => $task) : ?>
-<div class="modal fade" id="deleteTaskModal<?php echo  $task->id ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="deleteTaskModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteTaskModal<?php echo esc_attr( $task->id ); ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="deleteTaskModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">

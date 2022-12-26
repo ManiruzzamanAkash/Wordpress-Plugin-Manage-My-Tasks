@@ -1,9 +1,9 @@
 <?php
 
 /**
- * CRUD Opearation Table Initialization
+ * CRUD Operation Table Initialization.
  * 
- * Initialize tasks CRUD table
+ * Initialize tasks CRUD table.
  *
  * @return void
  */
